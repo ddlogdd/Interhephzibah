@@ -3,6 +3,8 @@ Django
 django-summernote
 gunicorn
 pillow
+psycopg2
+python-decouple
 sqlparse
 tzdata
 whitenoise
