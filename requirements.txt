@@ -1,6 +1,8 @@
 asgiref
 Django
+django-summernote
+gunicorn
 pillow
 sqlparse
 tzdata
-gunicorn
+whitenoise
