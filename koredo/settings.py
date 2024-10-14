@@ -23,7 +23,7 @@ from decouple import config # type: ignore
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [config('FREE_DOMAIN'), config('PAID_DOMAIN'), f"www.{config('PAID_DOMAIN')}",]
 
