@@ -1,4 +1,5 @@
 asgiref
+cloudinary
 Django
 django-summernote
 gunicorn

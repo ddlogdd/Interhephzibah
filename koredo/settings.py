@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path, os
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,7 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'koredo.wsgi.application'
-print(config("DB_PASS"))
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -137,4 +137,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 x_FRAME_OPTIONS = 'SAMEORIGIN'
+CKEDITOR_UPLOAD_PATH = BASE_DIR / 'staticfiles/ckeditor/'
 
+cloudinary.config(
+    cloud_name = config("CLOUDINARY_NAME"),
+    api_key = config("CLOUDINARY_API"),
+    api_secret = config("CLOUDINARY_SECRET"),
+    secure = True
+)
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 99999999999999

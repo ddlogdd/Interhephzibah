@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -30,7 +31,8 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
-    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
+    # image = models.ImageField(upload_to='post_images/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     categories = models.ManyToManyField(Category, related_name='posts')
 
     objects = models.Manager()  # The default manager.
