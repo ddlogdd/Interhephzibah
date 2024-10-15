@@ -139,6 +139,17 @@ MEDIA_URL = '/media/'
 x_FRAME_OPTIONS = 'SAMEORIGIN'
 CKEDITOR_UPLOAD_PATH = BASE_DIR / 'staticfiles/ckeditor/'
 
+SUMMERNOTE_CONFIG = {
+    'attachment_storage_class': 'cloudinary_storage.storage.MediaCloudinaryStorage',  # Use Cloudinary for Summernote attachments
+    'summernote': {
+        'width': '100%',  # Optional: customize the editor width
+        'height': '400',  # Optional: customize the editor height
+    },
+}
+
+
+
+
 cloudinary.config(
     cloud_name = config("CLOUDINARY_NAME"),
     api_key = config("CLOUDINARY_API"),
